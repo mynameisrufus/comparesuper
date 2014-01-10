@@ -1,27 +1,70 @@
-<p ng-click="toggle()">{{ fund.trustee }} / {{ fund.name }}<p>
-<div ng-show="open">
-  <div ng-switch on="!!fund.comparisons['2009-2013'].rank">
-    <div ng-switch-when="true">
-      <h3>5 years</h3>
-      <h4>Rank:</h4>
-      <p>{{ fund.comparisons['2009-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }}</p>
-      <h4>Return (ROR):</h4>
-      <p>%{{ fund.comparisons['2009-2013'].ROR }}</p>
+<div class="fund">
+  <h3>{{ fund.trustee }}</h3>
+  <h6>{{ fund.name }} <span class="fund-label" ng-class="fund.typeCode">{{ fund.type }}</span></h6>
+
+  <div class="row display" ng-show="open">
+
+    <div class="medium-4 large-4 columns">
+
+      <div ng-switch on="!!fund.comparisons['2012-2013'].rank">
+        <div ng-switch-when="true">
+          <h3>Last year</h3>
+          <p>{{ fund.comparisons['2012-2013'].rank }} of {{ fund.comparisons['2012-2013'].count }} @ %{{ fund.comparisons['2012-2013'].ROR }}</p>
+        </div>
+        <div ng-switch-default>
+          <p class="label alert">No data for the previous year</p>
+        </div>
+      </div>
+
     </div>
-    <div ng-switch-default>
-      <p>Not enough data for five year numbers</p>
+
+    <div class="medium-4 large-4 columns">
+
+      <div ng-switch on="!!fund.comparisons['2009-2013'].rank">
+        <div ng-switch-when="true">
+          <h3>5 years</h3>
+          <p>{{ fund.comparisons['2009-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }} @ %{{ fund.comparisons['2009-2013'].ROR }}</p>
+        </div>
+        <div ng-switch-default>
+          <p class="label alert">Not enough data for five year numbers</p>
+        </div>
+      </div>
+
     </div>
+
+    <div class="medium-4 large-4 columns">
+
+      <div ng-switch on="!!fund.comparisons['2004-2013'].rank">
+        <div ng-switch-when="true">
+          <h3>10 years</h3>
+          <p>{{ fund.comparisons['2004-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }} @ %{{ fund.comparisons['2004-2013'].ROR }}</p>
+        </div>
+        <div ng-switch-default>
+          <p class="label alert">Not enough data for ten year numbers</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div ng-switch on="!!fund.comparisons['2004-2013'].rank">
-    <div ng-switch-when="true">
-      <h3>10 years</h3>
-      <h4>Rank:</h4>
-      <p>{{ fund.comparisons['2004-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }}</p>
-      <h4>Return (ROR):</h4>
-      <p>%{{ fund.comparisons['2004-2013'].ROR }}</p>
+
+  <div class="row display" ng-show="open">
+
+    <div class="medium-4 large-4 columns">
+      <h4>Number of members</h4>
+      <p>{{ fund.members }}</p>
     </div>
-    <div ng-switch-default>
-      <p>Not enough data for ten year numbers</p>
+
+    <div class="medium-8 large-8 columns">
+      <h4>Assets per member</h4>
+      <p>{{ fund.NAVPM | currency }}</p>
+    </div>
+
+  </div>
+
+  <div class="row display">
+    <div class="toggle-button" ng-click="toggle()">
+      <span ng-show="open">&#x25B2;</span>
+      <span ng-hide="open">&#x25BC;</span>
     </div>
   </div>
 </div>

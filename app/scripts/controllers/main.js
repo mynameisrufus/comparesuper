@@ -26,6 +26,10 @@ angular.module('super2014ausApp')
         Data.sortName();
       };
 
+      $scope.sortWealthy = function() {
+        Data.sortNAVPM();
+      };
+
     });
 
   }]);

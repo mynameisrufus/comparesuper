@@ -1,10 +1,29 @@
-<input ng-model="searchText">
-<button ng-click="sortOneYearReturn()">1Y</button>
-<button ng-click="sortFiveYearReturn()">5Y</button>
-<button ng-click="sortTenYearReturn()">10Y</button>
-<button ng-click="sortAlpha()">A-Z</button>
-<ul>
-  <li ng-repeat="fund in funds | filter:searchText">
-    <fund-detail fund="fund">
-  </li>
+<ul class="nav-button-group">
+  <li><button class="nav-button" ng-click="sortOneYearReturn()">1Y</button></li>
+  <li><button class="nav-button" ng-click="sortFiveYearReturn()">5Y</button></li>
+  <li><button class="nav-button" ng-click="sortTenYearReturn()">10Y</button></li>
+  <li><button class="nav-button" ng-click="sortAlpha()">AZ</button></li>
+  <li><button class="nav-button" ng-click="sortWealthy()">$</button></li>
 </ul>
+
+<div class="row">
+  <div>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-10 columns">
+    <input type="text" placeholder="Search for fund" ng-model="searchText">
+  </div>
+  <div class="small-2 columns">
+    <div class="button secondary postfix" ng-click="searchText = ''">Clear</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div ng-repeat="fund in funds | filter:searchText:name">
+      <fund-detail fund="fund" index="$index">
+    </div>
+  </div>
+</div>

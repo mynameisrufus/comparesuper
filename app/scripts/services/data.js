@@ -36,4 +36,10 @@ angular.module('super2014ausApp')
       });
     };
 
+    this.sortNAVPM = function() {
+      return this.set.sort(function(a, b) {
+        return b.NAVPM - a.NAVPM;
+      });
+    };
+
   }]);
