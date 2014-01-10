@@ -1,0 +1,27 @@
+<p ng-click="toggle()">{{ fund.trustee }} / {{ fund.name }}<p>
+<div ng-show="open">
+  <div ng-switch on="!!fund.comparisons['2009-2013'].rank">
+    <div ng-switch-when="true">
+      <h3>5 years</h3>
+      <h4>Rank:</h4>
+      <p>{{ fund.comparisons['2009-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }}</p>
+      <h4>Return (ROR):</h4>
+      <p>%{{ fund.comparisons['2009-2013'].ROR }}</p>
+    </div>
+    <div ng-switch-default>
+      <p>Not enough data for five year numbers</p>
+    </div>
+  </div>
+  <div ng-switch on="!!fund.comparisons['2004-2013'].rank">
+    <div ng-switch-when="true">
+      <h3>10 years</h3>
+      <h4>Rank:</h4>
+      <p>{{ fund.comparisons['2004-2013'].rank }} of {{ fund.comparisons['2009-2013'].count }}</p>
+      <h4>Return (ROR):</h4>
+      <p>%{{ fund.comparisons['2004-2013'].ROR }}</p>
+    </div>
+    <div ng-switch-default>
+      <p>Not enough data for ten year numbers</p>
+    </div>
+  </div>
+</div>
