@@ -26,8 +26,11 @@
 .fund-label {
   @include label();
   float: right;
+  &:hover {
+    color: #AEAEAE;
+  }
   &.retail {
-
+    background-color: darken(#008cba, 10%);
   };
 
   &.retail-erf {
@@ -35,7 +38,7 @@
   };
 
   &.corporate {
-
+    background-color: #000000;
   };
 
   &.industry {

@@ -5,10 +5,10 @@ angular.module('super2014ausApp')
 
     this.set = [];
 
-    var Data = this;
+    var self = this;
 
     this.$promise = $http.get('/data/2013.json').then(function(response) {
-      Data.set = response.data;
+      self.set = response.data;
     });
 
     this.sortComparison = function(comparison) {

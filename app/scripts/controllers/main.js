@@ -3,12 +3,12 @@
 angular.module('super2014ausApp')
   .controller('MainCtrl', ['$scope', 'Data', function ($scope, Data) {
 
-    $scope.funds = []
+    $scope.funds = [];
 
     Data.$promise.then(function() {
 
       $scope.render = true;
-      $scope.funds = Data.set
+      $scope.funds = Data.set;
 
       $scope.sortOneYearReturn = function() {
         Data.sortComparison('2012-2013');
