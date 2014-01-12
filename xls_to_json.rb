@@ -56,11 +56,14 @@ funds = rows.map do |row|
   fund
 end
 
-funds.sort! { |a, b| a["comparisons"]["2012-2013"]["ROR"].to_i <=> b["comparisons"]["2012-2013"]["ROR"].to_i }
+funds.sort! { |a, b|
+  b["comparisons"]["2012-2013"]["ROR"].to_i <=> a["comparisons"]["2012-2013"]["ROR"].to_i
+}
 funds.each_with_index { |f, i|
-  f["comparisons"]["2012-2013"]["rank"] = f["comparisons"]["2012-2013"]["ROR"].nil? ? nil : i + 1
+  f["comparisons"]["2012-2013"]["rank"] = i + 1
 }
 funds.sort! { |a, b| a["name"] <=> b["name"] }
+funds.sort! { |a, b| a["trustee"] <=> b["trustee"] }
 
 f = File.new("app/data/2013.json", "w")
 f.write(JSON.pretty_generate(funds))

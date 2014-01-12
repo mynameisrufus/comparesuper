@@ -26,12 +26,12 @@ angular.module('comparesuperApp')
 
     this.sortName = function() {
       return this.set.sort(function(a, b) {
-        if(a.trustee < b.trustee) return -1;
-        if(a.trustee > b.trustee) return 1;
-        return 0;
-      }).sort(function(a, b) {
         if(a.name < b.name) return -1;
         if(a.name > b.name) return 1;
+        return 0;
+      }).sort(function(a, b) {
+        if(a.trustee < b.trustee) return -1;
+        if(a.trustee > b.trustee) return 1;
         return 0;
       });
     };
