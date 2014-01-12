@@ -3,7 +3,7 @@
 describe('Directive: fundDetail', function () {
 
   // load the directive's module
-  beforeEach(module('super2014ausApp'));
+  beforeEach(module('comparesuperApp'));
 
   var element,
     scope;

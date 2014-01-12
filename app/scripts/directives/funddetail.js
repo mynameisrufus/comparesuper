@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('super2014ausApp')
+angular.module('comparesuperApp')
   .directive('fundDetail', function () {
     return {
       scope: { 'fund': '=', 'index': '@' },

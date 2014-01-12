@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('super2014ausApp')
+angular.module('comparesuperApp')
   .service('Data', ['$http', function Data($http) {
 
     this.set = [];

@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('super2014ausApp'));
+  beforeEach(module('comparesuperApp'));
 
   var MainCtrl,
     scope;

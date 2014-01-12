@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('super2014ausApp')
+angular.module('comparesuperApp')
   .controller('MainCtrl', ['$scope', 'Data', function ($scope, Data) {
 
     $scope.funds = [];

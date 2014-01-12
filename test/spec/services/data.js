@@ -3,7 +3,7 @@
 describe('Service: Data', function () {
 
   // load the service's module
-  beforeEach(module('super2014ausApp'));
+  beforeEach(module('comparesuperApp'));
 
   // instantiate service
   var Data;

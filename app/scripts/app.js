@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('super2014ausApp', [
+angular.module('comparesuperApp', [
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
